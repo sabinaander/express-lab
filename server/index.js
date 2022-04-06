@@ -8,6 +8,7 @@ const app = express()
 const port = 9999
 
 let animals = getJsonFile()
+console.log(animals)
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -115,18 +116,12 @@ function findAnimals(id) {
 function getJsonFile() {
     let animals = []
 
-    fs.readFile('./server/animals.json', 'utf-8', (err, data) => {
-        if (err) {        
-            console.error(err)
-            animals = []
-        }
-        else {
-            animals = JSON.parse(data.toString())
-
-            console.log(animals)
-        }
-    })
-
+    try {
+        animals = JSON.parse(fs.readFileSync('./server/animals.json', { encoding: 'utf-8', flag: 'r' }))
+    }
+    catch (err) {
+        animals = []
+    }
     return animals
 }
 
