@@ -1,0 +1,41 @@
+GET http://localhost:9999/
+
+
+### add data
+POST http://localhost:9999/animal/
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "katt",
+    "dangerous": false,
+    "fur": "long"
+}
+
+### get all stored data
+GET http://localhost:9999/animals/
+
+
+### get specific item from db
+GET http://localhost:9999/animal/1/
+
+### get specific item from db (404, does not exist)
+GET http://localhost:9999/animal/666/
+
+### edit specific item from db
+PUT http://localhost:9999/animal/1/
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "orm",
+    "dangerous": true,
+    "fur": "no"
+}
+
+### delete specific item from db
+DELETE http://localhost:9999/animal/1/
+
+### delete item from db (404 Bad request - does not exist)
+DELETE http://localhost:9999/animal/666/
+
