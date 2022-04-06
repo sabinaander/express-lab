@@ -12,9 +12,7 @@ let animals = getJsonFile()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    res.send('App is Live!')
-})
+app.use(express.static('dist'))
 
 // add animal 
 app.post('/animal', (req, res) => {
@@ -117,8 +115,9 @@ function findAnimals(id) {
 function getJsonFile() {
     let animals = []
 
-    fs.readFile('./animals.json', 'utf-8', (err, data) => {
-        if (err) {
+    fs.readFile('./server/animals.json', 'utf-8', (err, data) => {
+        if (err) {        
+            console.error(err)
             animals = []
         }
         else {
@@ -132,7 +131,7 @@ function getJsonFile() {
 }
 
 function updateJsonFile() {
-    fs.writeFile('./animals.json', JSON.stringify(animals), (err) => {
+    fs.writeFile('./server/animals.json', JSON.stringify(animals), (err) => {
 
         if (err) {
             console.log(err)

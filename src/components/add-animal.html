@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalDB</title>
+</head>
+<body>
+    <div class="mainContainer">
+        <h1>AnimalDB</h1>
+
+        <div class="formContainer">
+            <h2>Add a new animal</h2>
+            <form action="http://localhost:1337/animal" method="POST">
+                <div class="input-list">
+                    <label for="name">Name</label>
+                    <input class="form-control" name="name">
+                </div>
+                <div class="input-list">
+                    <label for="dangerous">Is it dangerous?</label>
+                    // drop down YES / NO
+                    <input class="form-control" name="dangerous">
+                </div>
+                <div class="input-list">
+                    <label for="img">Add an image!</label>
+                    // upload image (url?)
+                    <input class="form-control" name="img">
+                </div>
+                <button type="submit">Add animal</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

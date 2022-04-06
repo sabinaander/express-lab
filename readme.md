@@ -28,3 +28,8 @@ These are in Swedish.
 - 5.Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objek
 
 ## Run the project:
+
+
+npm i
+
+npm run build
