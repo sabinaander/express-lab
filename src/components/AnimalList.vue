@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import type { Animal } from "@/views/HomeView.vue";
+import { defineProps, ref } from "vue";
+
+interface Props {
+  animals: Animal[];
+}
+
+const { animals } = defineProps<Props>();
+</script>
+
+<template>
+  <h2>All animals in the DB:</h2>
+  <ul>
+    <li v-for="animal in animals">
+      <h3>{{ animal.name }}</h3>
+      <p>id: {{ animal.id }}</p>
+      <p>danger-level: {{ animal.dangerous }}</p>
+      <p>fur-type: {{ animal.fur }}</p>
+      <RouterLink :to="`/animal/${animal.id}/edit`"> Edit </RouterLink>
+    </li>
+  </ul>
+</template>
+
+<style>
+li {
+  border-bottom: solid 1px black;
+  list-style: none;
+}
+</style>

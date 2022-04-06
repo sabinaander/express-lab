@@ -3,6 +3,7 @@ import { defineComponent, onMounted, ref } from "vue";
 import { RouterLink } from 'vue-router'
 import AddAnimalForm from "../components/AddAnimalForm.vue";
 import AnimalList from "../components/AnimalList.vue";
+import EditAnimalForm from "../components/EditAnimalForm.vue";
 
 export interface Animal {
   id: string;
@@ -13,24 +14,20 @@ export interface Animal {
 
 export default defineComponent({
     setup() {
-        const animals = ref<Animal[]>([]);
+        const animal = ref<Animal>();
         async function fetchData() {
-            const result = await fetch("http://localhost:9999/animals");
-            animals.value = await result.json();
+            const result = await fetch("http://localhost:9999/animal/5/");
+            animal.value = await result.json();
         }
         onMounted(() => {
             fetchData();
         });
-        return { animals, fetchData };
+        return { animal, fetchData };
     },
-    components: { AddAnimalForm, AnimalList }
+    components: { AddAnimalForm, AnimalList, EditAnimalForm }
 });
 </script>
 
 <template>
-  <main>
-    <AddAnimalForm @animalCreated="fetchData"/>
-    <h3>ehhh22</h3>
-    <AnimalList :animals="animals" />
-  </main>
+<EditAnimalForm v-if='animal' :animal="animal"/>
 </template>

@@ -1,9 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fs = require('fs')
-// const cors = require('cors')
+const cors = require('cors')
 // const { url } = require('inspector')
 const app = express()
+
+app.use(cors())
 
 const port = 9999
 
@@ -18,7 +20,7 @@ app.use(express.static('dist'))
 // add animal 
 app.post('/animal', (req, res) => {
     const newAnimal = req.body
-
+    console.log(newAnimal)
     const oldAnimals = findAnimals(newAnimal.id)
 
     if (oldAnimals.length) {
@@ -40,9 +42,8 @@ app.get('/animals', (req, res) => {
 
 app.get('/animal/:id', (req, res) => {
     const id = req.params.id
-
     for (let animal of animals) {
-        if (animal.id === id) {
+        if (+animal.id === +id) {
             res.json(animal)
             return
         }
