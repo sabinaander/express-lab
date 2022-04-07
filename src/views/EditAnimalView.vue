@@ -30,5 +30,7 @@ export default defineComponent({
 </script>
 
 <template>
+<div class="content">
 <EditAnimalForm v-if='animal' :animal="animal"/>
+</div>
 </template>

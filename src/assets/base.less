@@ -1,0 +1,122 @@
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Abel", sans-serif;
+  color: rgb(103, 1, 103);
+  min-height: 100vh;
+}
+
+body {
+  background: rgb(255, 197, 244);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 197, 244, 0.5018382352941176) 0%,
+    rgba(250, 149, 238, 0.5354516806722689) 50%,
+    rgba(0, 212, 255, 0.46262254901960786) 100%
+  );
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.407);
+  border-radius: 2rem;
+  text-align: center;
+
+  @media screen and (min-width: 450px) {
+    width: 80vw;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  color: rgb(255, 255, 255);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  text-shadow: -3px 0 aqua, 0 3px aqua, 3px 0 aqua, 0 -3px aqua;
+  margin-top: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+.dividerImg {
+  object-fit: cover;
+  width: 100%;
+  max-height: 20vw;
+}
+
+button {
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #fcaee6 0%, #a6e7ee 51%, #ffade8 100%);
+  flex: 1 1 auto;
+  box-shadow: 0 0 20px #eee;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  cursor: pointer;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 800;
+  &:hover {
+    background-position: right center;
+  }
+  @media screen and (min-width: 450px) {
+    min-width: 8rem;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+ul {
+  padding: 0;
+  h3 {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+}
+
+p,
+label {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+li {
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.289);
+  border-radius: 12px;
+  @media screen and (min-width: 450px) {
+    min-width: 40vw;
+  }
+}
+
+.input-list {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-weight: bold;
+  }
+  input,
+  select {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 25px;
+    border: none;
+  }
+}

@@ -28,7 +28,17 @@ export default defineComponent({
 </script>
 
 <template>
-<h1>ADMIN SIDE</h1>
+<div class="content">
+<h1>Admin Side</h1>
+<img class="dividerImg" src="src\assets\woman.jpg" />
 <AddAnimalForm @animalCreated="fetchData" />
 <AnimalList :animals="animals" />
+</div>
 </template>
+
+<style scoped lang="less">
+
+h1{
+    margin-top: 1rem;
+}
+</style>

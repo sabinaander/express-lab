@@ -1,7 +1,5 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import { RouterLink } from "vue-router";
-import AddAnimalForm from "../components/AddAnimalForm.vue";
 import AnimalList from "../components/AnimalList.vue";
 
 export interface Animal {
@@ -29,9 +27,18 @@ export default defineComponent({
 
 <template>
   <main>
-    <div><h1>Welcome to the animal shelter!</h1>
-    <p>Here's a list of all available animals up for adoption:</p></div>
-    
-    <AnimalList :animals="animals" />
+    <div class="content">
+      <h1>Welcome to the animal shelter! ✨</h1>
+      <img class="dividerImg" src="src\assets\girl.jpg" />
+      <h2>
+        We believe that every pet deserves a home and to feel loved by that
+        special someone 💜<br />
+        Here at the shelter all pets are sparkly, friendly and loves cuddles!
+      </h2>
+      <AnimalList :animals="animals" />
+    </div>
   </main>
 </template>
+
+<style lang="less">
+</style>

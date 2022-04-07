@@ -15,7 +15,7 @@ const { animals } = defineProps<Props>();
     <li v-for="animal in animals">
       <h3>{{ animal.name }}</h3>
       <p>id: {{ animal.id }}</p>
-      <p>danger-level: {{ animal.dangerous }}</p>
+      <p>dangerous: {{ animal.dangerous }}</p>
       <p>fur-type: {{ animal.fur }}</p>
       <button class="iconButton">
         <RouterLink :to="`/animal/${animal.id}/edit`"> Edit </RouterLink>
@@ -24,9 +24,3 @@ const { animals } = defineProps<Props>();
   </ul>
 </template>
 
-<style>
-li {
-  border-bottom: solid 1px black;
-  list-style: none;
-}
-</style>
