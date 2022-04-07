@@ -23,15 +23,12 @@ export default defineComponent({
     });
     return { animals, fetchData };
   },
-  components: { AnimalList },
+  components: { AddAnimalForm, AnimalList },
 });
 </script>
 
 <template>
-  <main>
-    <div><h1>Welcome to the animal shelter!</h1>
-    <p>Here's a list of all available animals up for adoption:</p></div>
-    
-    <AnimalList :animals="animals" />
-  </main>
+<h1>ADMIN SIDE</h1>
+<AddAnimalForm @animalCreated="fetchData" />
+<AnimalList :animals="animals" />
 </template>
