@@ -6,7 +6,7 @@ const emit = defineEmits<{ (event: "animalCreated"): void }>();
 const animal = reactive({
   id: "",
   name: "",
-  dangerous: false,
+  dangerous: "",
   fur: "",
 });
 
@@ -21,7 +21,7 @@ async function addAnimal() {
 
   animal.id = "";
   animal.name = "";
-  animal.dangerous = false;
+  animal.dangerous = "";
   animal.fur = "";
 
   emit("animalCreated");
@@ -61,8 +61,8 @@ async function addAnimal() {
             name="dangerous"
             required
           >
-            <option value="true">YES</option>
-            <option value="false">NO</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
         </div>
         <div class="input-list">
@@ -74,7 +74,7 @@ async function addAnimal() {
             required
           />
         </div>
-        <button type="submit">Add animal</button>
+        <button type="submit" >Add animal</button>
       </form>
     </div>
   </div>

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { Animal } from "@/views/HomeView.vue";
-import { reactive } from "vue";
 
-const emit = defineEmits<{ (event: "animalCreated"): void }>();
+const emit = defineEmits<{ (event: "animalCreated" | "animalDeleted"): void }>();
 
 interface Props {
   animal: Animal;
@@ -10,8 +9,8 @@ interface Props {
 
 const { animal } = defineProps<Props>();
 
-async function addAnimal() {
-  const result = await fetch("http://localhost:9999/animal", {
+async function editAnimal() {
+  const result = await fetch(`http://localhost:9999/animal/${animal.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -21,14 +20,28 @@ async function addAnimal() {
 
   emit("animalCreated");
 }
+
+async function deleteAnimal() {
+
+  const result = await fetch(`http://localhost:9999/animal/${animal.id}`, {
+      
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  emit("animalDeleted");
+}
+
 </script>
 
 <template>
   <div class="mainContainer">
-    <h1>AnimalDB</h1>
+    <h1>Edit Animal</h1>
     <div class="formContainer">
       <h2>Edit your animal</h2>
-      <form @submit.prevent="addAnimal">
+      <form @submit.prevent="editAnimal">
         <div class="input-list">
           <label for="id">ID</label>
           <input
@@ -57,8 +70,8 @@ async function addAnimal() {
             name="dangerous"
             required
           >
-            <option value="true">YES</option>
-            <option value="false">NO</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
         </div>
         <div class="input-list">
@@ -72,7 +85,7 @@ async function addAnimal() {
         </div>
         <button type="submit">Save edit</button>
 
-        <button type="button">Delete</button>
+        <button type="button" @click="deleteAnimal" >Delete</button>
       </form>
     </div>
   </div>
