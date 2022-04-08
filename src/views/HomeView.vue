@@ -28,17 +28,24 @@ export default defineComponent({
 <template>
   <main>
     <div class="content">
-      <h1>Welcome to the animal shelter! ✨</h1>
-      <img class="dividerImg" src="src\assets\girl.jpg" />
-      <h2>
-        We believe that every pet deserves a home and to feel loved by that
-        special someone 💜<br />
-        Here at the shelter all pets are sparkly, friendly and loves cuddles!
-      </h2>
+      <h1 class="paddedContainer">Welcome to the animal shelter! ✨</h1>
+      <img class="dividerImg" src="@/assets/girl.jpg" />
+      <div class="paddedContainer">
+        <p>
+          We believe that every pet deserves a home and to feel loved by that
+          special someone 💜
+        </p>
+        <p>
+          Here at the shelter all pets are sparkly, friendly and loves cuddles!
+        </p>
+      </div>
       <AnimalList :animals="animals" />
     </div>
   </main>
 </template>
 
 <style lang="less">
+p {
+  font-size: clamp(1rem, 5vw, 2rem);
+}
 </style>
