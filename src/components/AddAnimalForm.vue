@@ -4,7 +4,6 @@ import { reactive } from "vue";
 const emit = defineEmits<{ (event: "animalCreated"): void }>();
 
 const animal = reactive({
-  id: "",
   name: "",
   dangerous: "",
   fur: "",
@@ -19,7 +18,7 @@ async function addAnimal() {
     body: JSON.stringify(animal),
   });
 
-  animal.id = "";
+  // empty form on submit
   animal.name = "";
   animal.dangerous = "";
   animal.fur = "";
@@ -34,16 +33,6 @@ async function addAnimal() {
       <h2>Add a new animal</h2>
       <form @submit.prevent="addAnimal">
         <div class="input-list">
-          <label for="id">ID</label>
-          <input
-            class="form-control"
-            type="number"
-            v-model="animal.id"
-            name="id"
-            required
-          />
-        </div>
-        <div class="input-list">
           <label for="name">Name</label>
           <input
             class="form-control"
@@ -54,7 +43,7 @@ async function addAnimal() {
         </div>
         <div class="input-list">
           <label for="dangerous">Is it dangerous?</label>
-          
+
           <select
             class="form-control"
             v-model="animal.dangerous"
@@ -74,7 +63,7 @@ async function addAnimal() {
             required
           />
         </div>
-        <button type="submit" >Add animal</button>
+        <button type="submit">Add animal</button>
       </form>
     </div>
   </div>

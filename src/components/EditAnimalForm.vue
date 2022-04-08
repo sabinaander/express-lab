@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import type { Animal } from "@/views/HomeView.vue";
+import { useRouter } from "vue-router";
 
-const emit = defineEmits<{ (event: "animalCreated" | "animalDeleted"): void }>();
+const router = useRouter()
+
+const emit = defineEmits<{
+  (event: "animalCreated" | "animalDeleted"): void;
+}>();
 
 interface Props {
   animal: Animal;
@@ -10,7 +15,7 @@ interface Props {
 const { animal } = defineProps<Props>();
 
 async function editAnimal() {
-  const result = await fetch(`http://localhost:9999/animal/${animal.id}`, {
+  const result = await fetch(`http://localhost:9999/animal/${animal.id}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -19,12 +24,11 @@ async function editAnimal() {
   });
 
   emit("animalCreated");
+  router.push("/admin")
 }
 
 async function deleteAnimal() {
-
   const result = await fetch(`http://localhost:9999/animal/${animal.id}`, {
-      
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -32,8 +36,8 @@ async function deleteAnimal() {
   });
 
   emit("animalDeleted");
+  router.push("/admin");
 }
-
 </script>
 
 <template>
@@ -42,16 +46,6 @@ async function deleteAnimal() {
     <div class="formContainer">
       <h2>Edit your animal</h2>
       <form @submit.prevent="editAnimal">
-        <div class="input-list">
-          <label for="id">ID</label>
-          <input
-            class="form-control"
-            type="number"
-            v-model="animal.id"
-            name="id"
-            required
-          />
-        </div>
         <div class="input-list">
           <label for="name">Name</label>
           <input
@@ -63,7 +57,6 @@ async function deleteAnimal() {
         </div>
         <div class="input-list">
           <label for="dangerous">Is it dangerous?</label>
-          // drop down YES / NO
           <select
             class="form-control"
             v-model="animal.dangerous"
@@ -85,7 +78,7 @@ async function deleteAnimal() {
         </div>
         <button type="submit">Save edit</button>
 
-        <button type="button" @click="deleteAnimal" >Delete</button>
+        <button type="button" @click="deleteAnimal">Delete</button>
       </form>
     </div>
   </div>

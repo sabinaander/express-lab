@@ -18,16 +18,11 @@ app.use(express.static('dist'))
 
 // add animal 
 app.post('/animal', (req, res) => {
-    const newAnimal = req.body
-    console.log(newAnimal)
-    const oldAnimals = findAnimals(newAnimal.id)
-
-    if (oldAnimals.length) {
-        res.status(400).send('ID taken. Choose another ID')
-        return
+    const newAnimal = { 
+        ...req.body, 
+        id: Math.floor(Math.random()*1000000)
     }
 
-    console.log(newAnimal)
     animals.push(newAnimal)
     updateJsonFile()
     res.status(201).send(newAnimal.name + ' is saved to the database.')
@@ -40,9 +35,9 @@ app.get('/animals', (req, res) => {
 })
 
 app.get('/animal/:id', (req, res) => {
-    const id = req.params.id
+    const id = +req.params.id
     for (let animal of animals) {
-        if (+animal.id === +id) {
+        if (animal.id === id) {
             res.json(animal)
             return
         }
@@ -52,7 +47,7 @@ app.get('/animal/:id', (req, res) => {
 
 // delete the animal 
 app.delete('/animal/:id', (req, res) => {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
 
     const oldAnimals = findAnimals(id)
 
@@ -73,7 +68,7 @@ app.delete('/animal/:id', (req, res) => {
 
 // edit animal
 app.put('/animal/:id', (req, res) => {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
     const newAnimal = req.body
 
     const oldAnimals = findAnimals(id)

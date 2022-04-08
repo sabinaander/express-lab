@@ -6,7 +6,6 @@ POST http://localhost:9999/animal/
 Content-Type: application/json
 
 {
-    "id": "1",
     "name": "katt",
     "dangerous": "no",
     "fur": "long"
