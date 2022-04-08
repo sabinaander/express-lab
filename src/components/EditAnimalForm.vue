@@ -15,7 +15,7 @@ interface Props {
 const { animal } = defineProps<Props>();
 
 async function editAnimal() {
-  const result = await fetch(`http://localhost:9999/animal/${animal.id}/`, {
+  const result = await fetch(`http://localhost:5000/animal/${animal.id}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +28,7 @@ async function editAnimal() {
 }
 
 async function deleteAnimal() {
-  const result = await fetch(`http://localhost:9999/animal/${animal.id}`, {
+  const result = await fetch(`http://localhost:5000/animal/${animal.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

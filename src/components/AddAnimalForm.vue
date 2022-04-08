@@ -10,7 +10,7 @@ const animal = reactive({
 });
 
 async function addAnimal() {
-  const result = await fetch("http://localhost:9999/animal", {
+  const result = await fetch("http://localhost:5000/animal", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

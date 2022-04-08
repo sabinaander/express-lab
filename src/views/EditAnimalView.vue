@@ -18,7 +18,7 @@ export default defineComponent({
     const animal = ref<Animal>();
     async function fetchData() {
       const result = await fetch(
-        `http://localhost:9999/animal/${route.params.id}/`
+        `http://localhost:5000/animal/${route.params.id}/`
       );
       animal.value = await result.json();
     }

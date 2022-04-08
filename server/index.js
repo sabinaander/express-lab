@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors())
 
-const port = 9999
+const port = 5000
 
 let animals = getJsonFile()
 console.log(animals)

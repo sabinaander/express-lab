@@ -13,7 +13,7 @@ export default defineComponent({
   setup() {
     const animals = ref<Animal[]>([]);
     async function fetchData() {
-      const result = await fetch("http://localhost:9999/animals");
+      const result = await fetch("http://localhost:5000/animals");
       animals.value = await result.json();
     }
     onMounted(() => {
