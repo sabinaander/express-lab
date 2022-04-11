@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { useRoute } from "vue-router";
 import AddAnimalForm from "../components/AddAnimalForm.vue";
 import AnimalList from "../components/AnimalList.vue";
 import EditAnimalForm from "../components/EditAnimalForm.vue";

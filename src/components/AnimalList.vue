@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Animal } from "@/views/HomeView.vue";
-import { defineProps, ref } from "vue";
+import { defineProps } from "vue";
 import { useRoute } from "vue-router";
 
 interface Props {
@@ -18,10 +18,8 @@ const isAdmin = route.path.includes("/admin");
     <li v-for="animal in animals" class="smallAnimalCard">
       <h3>{{ animal.name }}</h3>
       <div class="rowList">
-        <img src="@/assets/animals/1.png" />
-        <!-- <img src="src\assets\animals\${1.png}`"> -->
+        <img src="@/assets/animals/6.png" />
         <div class="columnList">
-          <p>id: {{ animal.id }}</p>
           <p>dangerous: {{ animal.dangerous }}</p>
           <p>fur-type: {{ animal.fur }}</p>
           <RouterLink

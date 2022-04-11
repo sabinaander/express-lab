@@ -28,43 +28,36 @@ async function addAnimal() {
 </script>
 
 <template>
-  <div class="mainContainer">
-    <div class="formContainer">
-      <h2>Add a new animal</h2>
-      <form @submit.prevent="addAnimal">
-        <div class="input-list">
-          <label for="name">Name</label>
-          <input
-            class="form-control"
-            v-model="animal.name"
-            name="name"
-            required
-          />
-        </div>
-        <div class="input-list">
-          <label for="dangerous">Is it dangerous?</label>
+  <div class="formContainer">
+    <h2>Add a new animal</h2>
+    <form @submit.prevent="addAnimal">
+      <div class="input-list">
+        <label for="name">Name</label>
+        <input
+          class="form-control"
+          v-model="animal.name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="input-list">
+        <label for="dangerous">Is it dangerous?</label>
 
-          <select
-            class="form-control"
-            v-model="animal.dangerous"
-            name="dangerous"
-            required
-          >
-            <option value="yes">YES</option>
-            <option value="no">NO</option>
-          </select>
-        </div>
-        <div class="input-list">
-          <label for="fur">How's the fur? (if any)</label>
-          <input
-            class="form-control"
-            v-model="animal.fur"
-            name="fur"
-            required
-          />
-        </div>
-        <button type="submit">Add animal</button>
-      </form>
-    </div>
+        <select
+          class="form-control"
+          v-model="animal.dangerous"
+          name="dangerous"
+          required
+        >
+          <option value="yes">YES</option>
+          <option value="no">NO</option>
+        </select>
+      </div>
+      <div class="input-list">
+        <label for="fur">How's the fur? (if any)</label>
+        <input class="form-control" v-model="animal.fur" name="fur" required />
+      </div>
+      <button type="submit">Add animal</button>
+    </form>
   </div>
 </template>

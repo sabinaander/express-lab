@@ -43,9 +43,3 @@ export default defineComponent({
     </div>
   </main>
 </template>
-
-<style lang="less">
-p {
-  font-size: clamp(1rem, 5vw, 2rem);
-}
-</style>
