@@ -1,8 +1,8 @@
-GET http://localhost:9999/
+GET http://localhost:5000/
 
 
 ### add data
-POST http://localhost:9999/animal/
+POST http://localhost:5000/animal/
 Content-Type: application/json
 
 {
@@ -12,29 +12,28 @@ Content-Type: application/json
 }
 
 ### get all stored data
-GET http://localhost:9999/animals/
+GET http://localhost:5000/animals/
 
 
-### get specific item from db
-GET http://localhost:9999/animal/1/
+### get specific item from db (Since ID is randomized, get ID fron stored data and replace "?")
+GET http://localhost:5000/animal/?/
 
 ### get specific item from db (404, does not exist)
-GET http://localhost:9999/animal/666/
+GET http://localhost:5000/animal/666/
 
-### edit specific item from db
-PUT http://localhost:9999/animal/1/
+### edit specific item from db (Since ID is randomized, get ID fron stored data and replace "?")
+PUT http://localhost:5000/animal/?/
 Content-Type: application/json
 
 {
-    "id": "3",
     "name": "orm",
     "dangerous": "yes",
     "fur": "no"
 }
 
-### delete specific item from db
-DELETE http://localhost:9999/animal/1/
+### delete specific item from db (Since ID is randomized, get ID fron stored data and replace "?")
+DELETE http://localhost:5000/animal/?/
 
 ### delete item from db (404 Bad request - does not exist)
-DELETE http://localhost:9999/animal/666/
+DELETE http://localhost:5000/animal/666/
 

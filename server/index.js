@@ -9,7 +9,6 @@ app.use(cors())
 const port = 5000
 
 let animals = getJsonFile()
-console.log(animals)
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
